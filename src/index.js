@@ -20,7 +20,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.post('/info', (req, res) => {
   const { name, surname, patronomic, phone } = req.body
   const { name_parent, surname_parent, patronomic_parent, phone_parent } = req.body
-  console.log(req.body)
   const query = {
     text: `
       INSERT INTO info(
