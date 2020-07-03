@@ -33,5 +33,11 @@ app.post('/info', (req, res) => {
     .then(() => res.redirect('/thanks.html'))
     .catch(e => console.error(e.stack))
 })
+app.get('/info', (req, res) => {
+  const query = `select * from info`
+  pool.query(query)
+    .then(data => res.json(data.rows))
+    .catch(e => console.error(e.stack))
+})
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
 
